@@ -1,0 +1,19 @@
+{% extends "weather/index.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="weather-card">
+  <div class="text">
+    <h3 id="city-name">City: city</h3>
+    <p id="weather-date">Date: -------- </p>
+    <p id="weather-time">Time: -------- </p>
+    <p id="temperature">Temperature: 0°C</p>
+    <p id="condition-text">Погода: ------- </p>
+  </div>
+  <div class="weather-icon">
+    <img id="weather-icon" src="#" alt="Weather Icon">
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+
+{% extends "weather/index.html" %}
+
+{% block content %}
+<div class="history-full">
+
+  <div class="history-stat">
+    <h3>Statistics</h3>
+    <p>Most popular city: {{ most_popular_city.city }} </p>
+    <p>запросов этого города: {{ most_popular_city.count }}</p>
+
+    <hr class="separator">
+
+    <p>stat1: blablablabla</p>
+    <p>stat2: blabla</p>
+    <p>stat3: blablafgfdhbfgbf</p>
+  </div>
+
+  <div class="history-grid">
+
+    {% for item in search_history %}
+    <div class="history-card">
+      <h3>City: {{ item.city }}</h3>
+      <p>Date: {{ item.date_time|date:"Y-m-d" }}</p>
+      <p>Time: {{ item.date_time|time:"H:i:s" }}</p>
+      <p>Temperature: {{ item.temperature }}°C</p>
+      <p>Погода: {{ item.condition }}</p>
+    </div>
+    {% endfor %}
+
+  </div>
+
+  <div class="history-listcity">
+    <h3>The count cities</h3>
+    {% for item in city_counts %}
+      <p>{{ item.city }}: count {{  item.count }}</p>
+    {% endfor %}
+  </div>
+
+</div>
+{% endblock %}

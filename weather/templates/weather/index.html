@@ -1,0 +1,42 @@
+<!-- weather/templates/index.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/form-validation.js' %}" defer></script>
+</head>
+<body>
+
+    <div class="header">
+      <a href="{% url 'weather:index' %}" class="header-link" style="text-decoration: none; color: white">
+        <h1>Weather App</h1>
+      </a>
+    </div>
+
+    <div class="bar">
+        <form id="city-form" method="POST" action="{% url 'weather:index' %}">
+            {% csrf_token %}
+
+            <input type="text" id="city-input" name="city" placeholder="{{ most_popular_city.city|default_if_none:'Enter a city' }}" required>
+            <button type="submit" id="submit-button" disabled>Get Weather</button>
+        </form>
+        <a href="{% url 'weather:history' %}" class="history-link">View Full History</a>
+    </div>
+
+
+    <div id="main" class="main-content">
+    {% block content %}
+    {% endblock %}
+    </div>
+
+
+
+    <script>
+      const historyUrl = "{% url 'weather:history' %}";
+      const indexUrl = "{% url 'weather:index' %}";
+    </script>
+</body>
+</html>
+
