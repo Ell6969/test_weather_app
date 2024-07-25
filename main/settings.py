@@ -132,6 +132,3 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 SESSION_COOKIE_AGE = 2592000
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
-
-
-# CITIES_DATA_DIR = '/data_city'
