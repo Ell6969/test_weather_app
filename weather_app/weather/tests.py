@@ -1,13 +1,14 @@
-from django.test import TestCase, Client
+from django.test import Client, TestCase
 from django.urls import reverse
-from django.utils import timezone
+
 from .models import SearchHistory
+
 
 class WeatherViewsTest(TestCase):
     def setUp(self):
         self.client = Client()
-        self.index_url = reverse('weather:index')  # Предположим, что у вас есть имя URL-шаблона для представления index
-        self.history_url = reverse('weather:history')  # Предположим, что у вас есть имя URL-шаблона для представления history
+        self.index_url = reverse('weather:index')
+        self.history_url = reverse('weather:history')
 
     def test_index_post_request(self):
         # Отправляем POST-запрос с городом
@@ -52,5 +53,3 @@ class WeatherViewsTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn('most_popular_city', response.context)
         self.assertEqual(response.context['most_popular_city']['city'], 'London')
-
-

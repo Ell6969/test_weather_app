@@ -1,6 +1,6 @@
 /.idea/
 /.venv/
-db.sqlite3
-/migrations/
+weather_app/db.sqlite3
 *.pyc
 __pycache__/
+.flake8

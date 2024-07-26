@@ -10,7 +10,7 @@ RUN poetry config virtualenvs.in-project true
 
 COPY . /code/
 
-RUN poetry install --no-dev
+RUN poetry install --no-cache --no-dev --no-root
 
 RUN chmod +x /code/entry.sh
 

@@ -1,12 +1,12 @@
 
 
-from django.shortcuts import render
-from django.http import JsonResponse
 from django.db.models import Count
+from django.http import JsonResponse
+from django.shortcuts import render
 from django.utils import timezone
 
-from .utils import get_session_id, get_weather
 from .models import SearchHistory
+from .utils import get_session_id, get_weather
 
 
 def index(request):
@@ -63,4 +63,3 @@ def history(request):
         'city_counts': city_counts,
         'most_popular_city': most_popular_city,
     })
-

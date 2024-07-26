@@ -1,8 +1,7 @@
 import requests
+from django.conf import settings
 
-
-api_key = '13884ef6fa014caaaae122254242007'
-# URL = f'http://api.weatherapi.com/v1//current.json?key={api_key}&q={city}'
+api_key = settings.API_KEY_WEATHER
 
 
 def get_session_id(request):

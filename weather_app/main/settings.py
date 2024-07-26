@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-
     'weather',
 ]
 
@@ -132,3 +131,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 SESSION_COOKIE_AGE = 2592000
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+API_KEY_WEATHER = '13884ef6fa014caaaae122254242007'
+AOI_URL_WEATHER = 'http://api.weatherapi.com/v1/current.json'
