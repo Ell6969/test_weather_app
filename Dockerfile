@@ -4,18 +4,14 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /code
 
-RUN pip3 install poetry
+COPY requirements.txt /code/
 
-RUN poetry config virtualenvs.in-project true
+RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . /code/
+COPY ./weather_app/ /code/
 
-RUN poetry install --no-cache --no-dev --no-root
-
-RUN chmod +x /code/entry.sh
+COPY ./entry.sh /code/
 
 EXPOSE 8000
 
-ENTRYPOINT ["/code/entry.sh"]
-
-
+ENTRYPOINT ["sh", "/code/entry.sh"]
